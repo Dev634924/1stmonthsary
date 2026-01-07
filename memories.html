@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Memories 💭</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+  background:linear-gradient(120deg,#667eea,#764ba2);
+  color:#fff;
+  min-height:100vh;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+  padding:15px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  z-index:1000;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  flex-wrap:wrap;
+}
+
+/* AUDIO PLAYER */
+.audio-player-container{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(10px);
+  padding:15px 20px;
+  border-radius:30px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.3);
+  z-index:2000;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  min-width:280px;
+}
+
+.audio-info{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  width:100%;
+}
+
+.audio-title{
+  font-size:0.9rem;
+  font-weight:bold;
+  flex:1;
+  text-align:center;
+}
+
+.audio-toggle{
+  background:rgba(255,255,255,0.3);
+  border:none;
+  color:#fff;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:1.2rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.3s ease;
+}
+
+.audio-toggle:hover{
+  background:rgba(255,255,255,0.4);
+  transform:scale(1.1);
+}
+
+.audio-player-container audio{
+  width:100%;
+  height:40px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  padding:10px 20px;
+  border-radius:20px;
+  transition:all 0.3s ease;
+}
+
+nav a:hover{
+  background:rgba(255,255,255,0.2);
+  transform:translateY(-2px);
+}
+
+/* MAIN CONTENT */
+main{
+  padding:120px 20px 60px;
+  min-height:100vh;
+}
+
+h1{
+  font-size:2.5rem;
+  margin-bottom:40px;
+  text-align:center;
+  animation:fadeIn 1s ease;
+}
+
+/* MEMORY CARDS */
+.memories-container{
+  max-width:1000px;
+  margin:0 auto;
+}
+
+.memory-card{
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+  border-radius:25px;
+  padding:30px;
+  margin-bottom:30px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.2);
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  animation:fadeIn 1s ease;
+  transition:transform 0.3s ease;
+}
+
+.memory-card:hover{
+  transform:translateY(-5px);
+}
+
+.memory-image{
+  width:100%;
+  max-width:600px;
+  height:400px;
+  object-fit:cover;
+  border-radius:20px;
+  margin:0 auto;
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.memory-text{
+  text-align:center;
+  font-size:1.2rem;
+  line-height:1.8;
+  padding:20px;
+}
+
+.memory-date{
+  text-align:center;
+  font-size:1rem;
+  opacity:0.9;
+  font-style:italic;
+  margin-top:10px;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width:768px){
+  nav{
+    padding:10px;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  
+  nav a{
+    padding:8px 15px;
+    font-size:0.9rem;
+  }
+  
+  main{
+    padding:100px 20px 40px;
+  }
+  
+  h1{
+    font-size:2rem;
+    margin-bottom:30px;
+  }
+  
+  .memory-card{
+    padding:20px;
+    margin-bottom:20px;
+  }
+  
+  .memory-image{
+    height:300px;
+    max-width:100%;
+  }
+  
+  .memory-text{
+    font-size:1rem;
+    padding:15px;
+  }
+  
+  .memory-date{
+    font-size:0.9rem;
+  }
+}
+
+@media (max-width:480px){
+  nav{
+    padding:8px 5px;
+    gap:5px;
+  }
+  
+  nav a{
+    padding:6px 10px;
+    font-size:0.75rem;
+  }
+  
+  main{
+    padding:90px 15px 30px;
+  }
+  
+  h1{
+    font-size:1.6rem;
+    margin-bottom:25px;
+  }
+  
+  .memory-card{
+    padding:15px;
+    margin-bottom:20px;
+    border-radius:20px;
+  }
+  
+  .memory-image{
+    height:250px;
+    border-radius:15px;
+  }
+  
+  .memory-text{
+    font-size:0.9rem;
+    padding:12px;
+    line-height:1.6;
+  }
+  
+  .memory-date{
+    font-size:0.85rem;
+    margin-top:8px;
+  }
+  
+  .audio-player-container{
+    bottom:10px;
+    right:10px;
+    left:10px;
+    min-width:auto;
+    padding:10px 15px;
+  }
+  
+  .audio-player-container audio{
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="home.html">Home</a>
+  <a href="song.html">Our Song</a>
+  <a href="Message.html">Message</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="memories.html">Memories</a>
+</nav>
+
+<main>
+  <h1>Our Memories 💭</h1>
+  <p style="text-align: center;">Every memory can be added to our website</p>
+  <div class="memories-container">
+    <br><br>
+    <!-- Memory 1 -->
+    <div class="memory-card">
+      <img src="img7.jpg" alt="Memory 1" class="memory-image">
+      <div class="memory-text">
+        <p>Thank you bebi dahil pag may pera ka nililibre mo din talaga ako eh no AHHAH, ayaw patalo eme.. Paldo
+            💕</p>
+        <div class="memory-date">December 25, 2025</div>
+      </div>
+    </div>
+
+    <!-- Memory 2 -->
+    <div class="memory-card">
+      <img src="img8.jpg" alt="Memory 2" class="memory-image">
+      <div class="memory-text">
+        <p>Dito yung time na sinagot mo ako, naiiyak ako non kasi sobrang saya ko talaga hhuhuhu, I love you so much Bebi!🌙</p>
+        <div class="memory-date">December 08, 2025</div>
+      </div>
+    </div>
+
+    <!-- Memory 3 -->
+    <div class="memory-card">
+      <img src="img9.jpg" alt="Memory 3" class="memory-image">
+      <div class="memory-text">
+        <p>Sarap sa feeling na makasama ka sa school with your friends and support sila sa atin hehe</p>
+        <div class="memory-date">November 18, 2025</div>
+      </div>
+    </div>
+
+    <!-- Memory 4 -->
+    <div class="memory-card">
+      <img src="Ride.jpg" alt="Memory 4" class="memory-image">
+      <div class="memory-text">
+        <p> natandaan ko lang first Ride natin dumeretso tayo sa Nlex AHHA 🎬</p>
+        <div class="memory-date">Basta nung OJT ka pa non</div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- PERSISTENT AUDIO PLAYER -->
+<div class="audio-player-container" id="audioPlayerContainer" style="display:none;">
+  <div class="audio-info">
+    <button class="audio-toggle" id="audioToggle" onclick="toggleAudio()">▶️</button>
+    <div class="audio-title" id="currentSongTitle">No song playing</div>
+  </div>
+  <audio id="persistentAudio" loop>
+    <source id="audioSource" src="" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+<script>
+// Songs playlist (same as song.html)
+const songs = [
+  {
+    id: 1,
+    title: "Musika",
+    src: "ikawmusika.m4a"
+  },
+  {
+    id: 2,
+    title: "Patutunguhan",
+    src: "patutunguhan.m4a"
+  }
+];
+
+let currentSongId = null;
+let audioPlaying = false;
+const persistentAudio = document.getElementById('persistentAudio');
+const audioToggle = document.getElementById('audioToggle');
+const audioPlayerContainer = document.getElementById('audioPlayerContainer');
+const currentSongTitle = document.getElementById('currentSongTitle');
+const audioSource = document.getElementById('audioSource');
+
+// Load saved state
+window.addEventListener('load', function() {
+  const savedSongId = localStorage.getItem('currentSongId');
+  const savedState = localStorage.getItem('audioPlaying');
+  const savedTime = localStorage.getItem('audioTime');
+  
+  if(savedSongId && savedState === 'true'){
+    const song = songs.find(s => s.id == savedSongId);
+    if(song){
+      currentSongId = song.id;
+      audioSource.src = song.src;
+      persistentAudio.load();
+      currentSongTitle.textContent = song.title;
+      audioPlayerContainer.style.display = 'flex';
+      
+      if(savedTime){
+        persistentAudio.currentTime = parseFloat(savedTime);
+      }
+      
+      persistentAudio.play().then(() => {
+        audioPlaying = true;
+        audioToggle.textContent = '⏸️';
+      }).catch(() => {
+        // Autoplay blocked
+      });
+    }
+  }
+});
+
+function toggleAudio(){
+  if(audioPlaying){
+    persistentAudio.pause();
+    audioPlaying = false;
+    audioToggle.textContent = '▶️';
+    localStorage.setItem('audioPlaying', 'false');
+  }else{
+    persistentAudio.play().then(() => {
+      audioPlaying = true;
+      audioToggle.textContent = '⏸️';
+      localStorage.setItem('audioPlaying', 'true');
+    }).catch(err => {
+      console.log('Play failed:', err);
+    });
+  }
+}
+
+// Save state periodically
+persistentAudio.addEventListener('timeupdate', function() {
+  if(audioPlaying){
+    localStorage.setItem('audioTime', persistentAudio.currentTime);
+  }
+});
+
+// Save state before page unload
+window.addEventListener('beforeunload', function() {
+  if(audioPlaying && currentSongId){
+    localStorage.setItem('audioTime', persistentAudio.currentTime);
+    localStorage.setItem('audioPlaying', 'true');
+    localStorage.setItem('currentSongId', currentSongId);
+  }
+});
+</script>
+
+</body>
+</html>
+

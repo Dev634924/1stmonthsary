@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Monthsary 💕 - For My Bebi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+  background:linear-gradient(120deg,#667eea,#764ba2);
+  color:#fff;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.login-container{
+  text-align:center;
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(10px);
+  padding:40px;
+  border-radius:30px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.2);
+  max-width:400px;
+  width:90%;
+}
+
+h1{
+  font-size:2.5rem;
+  margin-bottom:10px;
+}
+
+p{
+  margin-bottom:25px;
+  font-size:1.1rem;
+}
+
+input{
+  padding:15px;
+  border:none;
+  border-radius:25px;
+  text-align:center;
+  font-size:1rem;
+  width:100%;
+  margin-bottom:15px;
+  outline:none;
+}
+
+button{
+  padding:12px 30px;
+  border:none;
+  border-radius:25px;
+  background:#fff;
+  color:#667eea;
+  font-weight:bold;
+  font-size:1rem;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  width:100%;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.error{
+  color:#ffebee;
+  margin-top:10px;
+  font-size:0.9rem;
+  display:none;
+}
+
+/* SLIDESHOW */
+.slideshow-container{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background:linear-gradient(120deg,#667eea,#764ba2);
+  z-index:2000;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.slideshow-container.active{
+  display:flex;
+}
+
+.slideshow-wrapper{
+  position:relative;
+  width:100%;
+  height:100%;
+}
+
+.slide{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  opacity:0;
+  transition:opacity 0.8s ease-in-out;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(120deg,#667eea,#764ba2);
+}
+
+.slide.active{
+  opacity:1;
+  z-index:1;
+}
+
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(0.8);
+}
+
+.slide-content{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  z-index:2;
+  color:#fff;
+  text-shadow:2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.slide-content h2{
+  font-size:3rem;
+  margin-bottom:20px;
+  animation:slideUp 0.8s ease;
+}
+
+.slide-content p{
+  font-size:1.5rem;
+  animation:slideUp 1s ease;
+}
+
+@keyframes slideUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.heart-overlay{
+  position:absolute;
+  font-size:5rem;
+  animation:float 3s ease-in-out infinite;
+  z-index:3;
+}
+
+@keyframes float{
+  0%, 100%{
+    transform:translateY(0) scale(1);
+  }
+  50%{
+    transform:translateY(-20px) scale(1.1);
+  }
+}
+
+/* VIDEO CONTAINER */
+.video-container{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background:#000;
+  z-index:3000;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.video-container.active{
+  display:flex;
+}
+
+.video-container video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.video-overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.3);
+  z-index:1;
+}
+
+.video-content{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  z-index:2;
+  color:#fff;
+  text-shadow:2px 2px 10px rgba(0,0,0,0.8);
+  animation:fadeIn 1s ease;
+}
+
+.video-content h2{
+  font-size:3.5rem;
+  margin-bottom:20px;
+}
+
+.video-content p{
+  font-size:1.8rem;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width:768px){
+  .login-container{
+    padding:30px 20px;
+  }
+  
+  h1{
+    font-size:2rem;
+  }
+  
+  p{
+    font-size:0.95rem;
+  }
+  
+  .slide-content h2{
+    font-size:2rem;
+    margin-bottom:15px;
+  }
+  
+  .slide-content p{
+    font-size:1.2rem;
+  }
+  
+  .heart-overlay{
+    font-size:3rem;
+  }
+  
+  .video-content h2{
+    font-size:2rem;
+    margin-bottom:15px;
+  }
+  
+  .video-content p{
+    font-size:1.2rem;
+  }
+}
+
+@media (max-width:480px){
+  .login-container{
+    padding:25px 15px;
+    width:95%;
+  }
+  
+  h1{
+    font-size:1.8rem;
+  }
+  
+  p{
+    font-size:0.9rem;
+    margin-bottom:20px;
+  }
+  
+  input{
+    padding:12px;
+    font-size:0.9rem;
+  }
+  
+  button{
+    padding:10px 20px;
+    font-size:0.9rem;
+  }
+  
+  .slide-content{
+    padding:0 20px;
+  }
+  
+  .slide-content h2{
+    font-size:1.5rem;
+    margin-bottom:10px;
+  }
+  
+  .slide-content p{
+    font-size:1rem;
+  }
+  
+  .heart-overlay{
+    font-size:2.5rem;
+  }
+  
+  .video-content{
+    padding:0 20px;
+  }
+  
+  .video-content h2{
+    font-size:1.5rem;
+    margin-bottom:10px;
+  }
+  
+  .video-content p{
+    font-size:1rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+  <h1>🔒 Private</h1>
+  <p>Enter our monthsary date 💕</p>
+  <p style="font-size:0.9rem; opacity:0.9;">Format: MMDDYY</p>
+  <input type="password" id="pass" placeholder="MMDDYY" onkeypress="handleEnter(event)">
+  <button onclick="unlock()">Enter</button>
+  <p class="error" id="error">Wrong password 💔</p>
+</div>
+
+<!-- SLIDESHOW -->
+<div class="slideshow-container" id="slideshow">
+  <div class="slideshow-wrapper">
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <img src="img1.JPG" alt="Memory 1">
+      <div class="slide-content">
+        <h2>Our Journey Begins 💕</h2>
+        <p>Every moment with you is special</p>
+      </div>
+      <div class="heart-overlay" style="top:20%; left:10%;">💜</div>
+    </div>
+    
+    <!-- Slide 2 -->
+    <div class="slide">
+      <img src="img2.jpg" alt="Memory 2">
+      <div class="slide-content">
+        <h2>Beautiful Memories ✨</h2>
+        <p>Together we create magic</p>
+      </div>
+      <div class="heart-overlay" style="top:30%; right:15%;">💕</div>
+    </div>
+    
+    <!-- Slide 3 -->
+    <div class="slide">
+      <img src="img3.jpg" alt="Memory 3">
+      <div class="slide-content">
+        <h2>Forever & Always 🌙</h2>
+        <p>You are my everything</p>
+      </div>
+      <div class="heart-overlay" style="bottom:25%; left:20%;">💜</div>
+    </div>
+    
+    <!-- Slide 4 -->
+    <div class="slide">
+      <img src="img4.png" alt="Memory 4">
+      <div class="slide-content">
+        <h2>My Love 💖</h2>
+        <p>Thank you for being you</p>
+      </div>
+      <div class="heart-overlay" style="bottom:15%; right:10%;">💕</div>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<div class="video-container" id="videoContainer">
+  <video id="monthsaryVideo" autoplay playsinline>
+    <source src="musika.mp4" type="video/mp4">
+    <source src="musika.webm" type="video/webm">
+    Your browser does not support the video tag.
+  </video>
+  <div class="video-overlay"></div>
+  <div class="video-content">
+    <h2>For You, My Bebi! 💜</h2>
+    <p>Every moment with you is a treasure</p>
+  </div>
+</div>
+
+<script>
+function handleEnter(event){
+  if(event.key === 'Enter'){
+    unlock();
+  }
+}
+
+function unlock(){
+  const password = "120825";
+  const input = document.getElementById("pass").value;
+  const error = document.getElementById("error");
+
+  if(input === password){
+    // Hide login container
+    document.querySelector('.login-container').style.display = 'none';
+    
+    // Show slideshow
+    const slideshow = document.getElementById('slideshow');
+    slideshow.classList.add('active');
+    
+    // Start slideshow
+    startSlideshow();
+    
+    // After slideshow (8 seconds), show video
+    setTimeout(() => {
+      slideshow.classList.remove('active');
+      showVideo();
+    }, 12000); // 8 seconds total (2 seconds per slide x 4 slides)
+  }else{
+    error.style.display = "block";
+    setTimeout(() => {
+      error.style.display = "none";
+    }, 3000);
+  }
+}
+
+function showVideo(){
+  const videoContainer = document.getElementById('videoContainer');
+  const video = document.getElementById('monthsaryVideo');
+  
+  // Show video container
+  videoContainer.classList.add('active');
+  
+  // Enable sound and play video
+  video.muted = false;
+  video.volume = 1.0;
+  
+  video.play().catch(err => {
+    console.log("Video autoplay failed:", err);
+    // If autoplay fails, try with user interaction
+    video.muted = false;
+    video.play().catch(err2 => {
+      console.log("Video play failed:", err2);
+      // If still fails, redirect after a short delay
+      setTimeout(() => {
+        window.location.href = "home.html";
+      }, 2000);
+    });
+  });
+  
+  // Redirect when video ends
+  video.addEventListener('ended', function() {
+    window.location.href = "home.html";
+  });
+  
+  // Fallback: redirect after 60 seconds if video doesn't end
+  setTimeout(() => {
+    if(videoContainer.classList.contains('active')){
+      window.location.href = "home.html";
+    }
+  }, 60000);
+}
+
+function startSlideshow(){
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+  let slideCount = 0;
+  
+  // Change slide every 2 seconds
+  const slideInterval = setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % totalSlides;
+    slides[currentSlide].classList.add('active');
+    slideCount++;
+    
+    // Stop after showing all slides once
+    if(slideCount >= totalSlides){
+      clearInterval(slideInterval);
+    }
+  }, 2000);
+}
+</script>
+
+</body>
+</html>
+

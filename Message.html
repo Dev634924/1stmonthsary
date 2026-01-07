@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Message ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+  background:linear-gradient(120deg,#667eea,#764ba2);
+  color:#fff;
+  min-height:100vh;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+  padding:15px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  z-index:1000;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  flex-wrap:wrap;
+}
+
+/* AUDIO PLAYER */
+.audio-player-container{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(10px);
+  padding:15px 20px;
+  border-radius:30px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.3);
+  z-index:2000;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  min-width:280px;
+}
+
+.audio-info{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  width:100%;
+}
+
+.audio-title{
+  font-size:0.9rem;
+  font-weight:bold;
+  flex:1;
+  text-align:center;
+}
+
+.audio-toggle{
+  background:rgba(255,255,255,0.3);
+  border:none;
+  color:#fff;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:1.2rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.3s ease;
+}
+
+.audio-toggle:hover{
+  background:rgba(255,255,255,0.4);
+  transform:scale(1.1);
+}
+
+.audio-player-container audio{
+  width:100%;
+  height:40px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  padding:10px 20px;
+  border-radius:20px;
+  transition:all 0.3s ease;
+}
+
+nav a:hover{
+  background:rgba(255,255,255,0.2);
+  transform:translateY(-2px);
+}
+
+/* MAIN CONTENT */
+main{
+  padding:120px 20px 60px;
+  text-align:center;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.message-container{
+  max-width:800px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+  padding:50px;
+  border-radius:30px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.2);
+  animation:fadeIn 1s ease;
+}
+
+h1{
+  font-size:2.5rem;
+  margin-bottom:30px;
+}
+
+p{
+  line-height:2;
+  font-size:1.2rem;
+  text-align:left;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width:768px){
+  nav{
+    padding:10px;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  
+  nav a{
+    padding:8px 15px;
+    font-size:0.9rem;
+  }
+  
+  main{
+    padding:100px 20px 40px;
+  }
+  
+  .message-container{
+    padding:30px 25px;
+  }
+  
+  h1{
+    font-size:2rem;
+    margin-bottom:20px;
+  }
+  
+  p{
+    font-size:1rem;
+    line-height:1.8;
+  }
+}
+
+@media (max-width:480px){
+  nav{
+    padding:8px 5px;
+    gap:5px;
+  }
+  
+  nav a{
+    padding:6px 10px;
+    font-size:0.75rem;
+  }
+  
+  main{
+    padding:90px 15px 30px;
+  }
+  
+  .message-container{
+    padding:20px 15px;
+  }
+  
+  h1{
+    font-size:1.6rem;
+    margin-bottom:15px;
+  }
+  
+  p{
+    font-size:0.9rem;
+    line-height:1.7;
+    text-align:center;
+  }
+  
+  .audio-player-container{
+    bottom:10px;
+    right:10px;
+    left:10px;
+    min-width:auto;
+    padding:10px 15px;
+  }
+  
+  .audio-player-container audio{
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="home.html">Home</a>
+  <a href="song.html">Our Song</a>
+  <a href="Message.html">Message</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="memories.html">Memories</a>
+</nav>
+
+<main>
+  <div class="message-container">
+    <h1>Message For You Bebi!❤️</h1>
+    <p>
+        Happy 1st Monthsary, Bebi!
+        <br><br>
+        Hindi ko alam kung paano ko sisimulan to, pero gusto kong malaman mo na sobrang thankful ako kay God dahil nandito ka pa rin sa buhay ko. Alam natin pareho na hindi naging madali yung pinagdaanan natin. May sakit, may tampuhan, may pagod, may mga panahong akala natin tapos na… pero here we are again. Mas pinili nating bumalik, magpatawad, at magmahal ulit.
+
+        Hindi naging madali ang desisyon na magbalikan, pero alam mo ba? Isa yon sa mga desisyong hindi ko pinagsisihan. Kasi ngayon, mas malinaw na sakin kung gaano ka kahalaga. Mas naintindihan ko na ang love ay hindi lang puro kilig kasama dito ang pasensya, pang-unawa, at pagpili sa isat isa araw-araw.
+        
+        Salamat kasi kahit may mga araw na mahirap akong intindihin, nandyan ka pa rin. Salamat sa pag-stay kahit may dahilan ka para umalis. Salamat sa pagmamahal mo na hindi perpekto pero totoo. Natutunan kong hindi pala kailangan ng perfect na relasyon, ang mahalaga ay dalawang taong handang ayusin ang lahat kahit paulit-ulit.
+        
+        I promise na mas aalagaan ko ang puso mo. Mas magiging patient, mas magiging honest, at mas pipiliin ka kahit mahirap. Hindi man natin alam kung ano pa ang darating sa future, pero gusto kong harapin yon na ikaw ang kasama ko.
+        
+        Sa monthsary natin ngayon, gusto ko lang sabihin na mahal na mahal kita. Hindi lang dahil masaya tayo ngayon, kundi dahil pinili pa rin natin ang isat isa kahit dumaan tayo sa hirap.
+        
+        Ikaw at ikaw pa rin. Noon, ngayon, at sana sa mga susunod pang monthsary natin.
+        <br><br>
+        I love you, Bebi. sorry if Kulang pato gusto ko damihan ilagay pero ito nalang muna dapat nakaraan ko pa ito ginawa pero kanina ko lang nagawa paguwe ko dahil now ko lang nahawakan laptop ko and hindi ko nauuwe sa dorm pero yun mahal na mahal kita.. Im sorry sa mga excuses ko pero alam mo naman na ikaw ang mas nakakakilala sa akin kung gano ka since ang love ko sayo hehe
+        <br><br>
+        sapat kana baby Happy Monthsary! I love you so much!
+    </p>
+  </div>
+</main>
+
+<!-- PERSISTENT AUDIO PLAYER -->
+<div class="audio-player-container" id="audioPlayerContainer" style="display:none;">
+  <div class="audio-info">
+    <button class="audio-toggle" id="audioToggle" onclick="toggleAudio()">▶️</button>
+    <div class="audio-title" id="currentSongTitle">No song playing</div>
+  </div>
+  <audio id="persistentAudio" loop>
+    <source id="audioSource" src="" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+<script>
+// Songs playlist (same as song.html)
+const songs = [
+  {
+    id: 1,
+    title: "Musika",
+    src: "ikawmusika.m4a"
+  },
+  {
+    id: 2,
+    title: "Patutunguhan",
+    src: "patutunguhan.m4a"
+  }
+];
+
+let currentSongId = null;
+let audioPlaying = false;
+const persistentAudio = document.getElementById('persistentAudio');
+const audioToggle = document.getElementById('audioToggle');
+const audioPlayerContainer = document.getElementById('audioPlayerContainer');
+const currentSongTitle = document.getElementById('currentSongTitle');
+const audioSource = document.getElementById('audioSource');
+
+// Load saved state
+window.addEventListener('load', function() {
+  const savedSongId = localStorage.getItem('currentSongId');
+  const savedState = localStorage.getItem('audioPlaying');
+  const savedTime = localStorage.getItem('audioTime');
+  
+  if(savedSongId && savedState === 'true'){
+    const song = songs.find(s => s.id == savedSongId);
+    if(song){
+      currentSongId = song.id;
+      audioSource.src = song.src;
+      persistentAudio.load();
+      currentSongTitle.textContent = song.title;
+      audioPlayerContainer.style.display = 'flex';
+      
+      if(savedTime){
+        persistentAudio.currentTime = parseFloat(savedTime);
+      }
+      
+      persistentAudio.play().then(() => {
+        audioPlaying = true;
+        audioToggle.textContent = '⏸️';
+      }).catch(() => {
+        // Autoplay blocked
+      });
+    }
+  }
+});
+
+function toggleAudio(){
+  if(audioPlaying){
+    persistentAudio.pause();
+    audioPlaying = false;
+    audioToggle.textContent = '▶️';
+    localStorage.setItem('audioPlaying', 'false');
+  }else{
+    persistentAudio.play().then(() => {
+      audioPlaying = true;
+      audioToggle.textContent = '⏸️';
+      localStorage.setItem('audioPlaying', 'true');
+    }).catch(err => {
+      console.log('Play failed:', err);
+    });
+  }
+}
+
+// Save state periodically
+persistentAudio.addEventListener('timeupdate', function() {
+  if(audioPlaying){
+    localStorage.setItem('audioTime', persistentAudio.currentTime);
+  }
+});
+
+// Save state before page unload
+window.addEventListener('beforeunload', function() {
+  if(audioPlaying && currentSongId){
+    localStorage.setItem('audioTime', persistentAudio.currentTime);
+    localStorage.setItem('audioPlaying', 'true');
+    localStorage.setItem('currentSongId', currentSongId);
+  }
+});
+</script>
+
+</body>
+</html>
+

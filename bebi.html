@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+  background:linear-gradient(120deg,#ff9a9e,#fad0c4);
+  color:#fff;
+}
+
+/* PASSWORD SCREEN */
+#lock{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+}
+
+#lock input{
+  padding:12px;
+  border:none;
+  border-radius:25px;
+  text-align:center;
+  font-size:1rem;
+  margin-top:15px;
+}
+
+#lock button{
+  margin-top:15px;
+  padding:10px 25px;
+  border:none;
+  border-radius:25px;
+  background:#fff;
+  color:#ff6b81;
+  font-weight:bold;
+}
+
+/* MAIN CONTENT */
+#content{
+  display:none;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+  padding:15px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  z-index:1000;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  padding:10px 20px;
+  border-radius:20px;
+  transition:all 0.3s ease;
+}
+
+nav a:hover{
+  background:rgba(255,255,255,0.2);
+  transform:translateY(-2px);
+}
+
+/* SECTIONS */
+section{
+  min-height:100vh;
+  padding:120px 20px 60px;
+  text-align:center;
+  scroll-margin-top:80px;
+}
+
+h1{
+  font-size:2.5rem;
+  margin-bottom:20px;
+}
+
+p{
+  max-width:800px;
+  margin:auto;
+  line-height:1.8;
+  font-size:1.1rem;
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+  max-width:900px;
+  margin:30px auto;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD -->
+<div id="lock">
+  <h1>🔒 Private</h1>
+  <p>Enter our monthsary 💕</p>
+  <input type="password" id="pass" placeholder="MMDDYY">
+  <button onclick="unlock()">Enter</button>
+</div>
+
+<!-- MAIN -->
+<div id="content">
+
+  <nav>
+    <a href="#our-song">Our Song</a>
+    <a href="#message">Message</a>
+    <a href="#gallery">Gallery</a>
+  </nav>
+
+  <!-- OUR SONG -->
+  <section id="our-song">
+    <h1>Our Song 🎶</h1>
+    <p>
+      Every time this plays, I think of you.  
+      Press play, close your eyes, and feel how much you mean to me.
+    </p>
+    <div style="margin-top: 30px;">
+      <audio controls style="width: 100%; max-width: 500px; margin: 20px auto; display: block;">
+        <source src="song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </section>
+
+  <!-- MESSAGE -->
+  <section id="message">
+    <h1>Message ❤️</h1>
+    <p>
+      This isn't just a website.  
+      This is every feeling I sometimes fail to say out loud.
+      <br><br>
+      Thank you for staying when things weren't easy.
+      Thank you for choosing us even on days when love felt heavy.
+      <br><br>
+      I pray for growth, for patience, and for a future where
+      we finally live the life we always talk about.
+      <br><br>
+      I choose you — not just today, but every single day.
+    </p>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <h1>Gallery 📸</h1>
+    <p style="margin-bottom: 30px;">Our beautiful memories together</p>
+    <div class="gallery">
+      <img src="https://picsum.photos/400/400?1" alt="Memory 1">
+      <img src="https://picsum.photos/400/400?2" alt="Memory 2">
+      <img src="https://picsum.photos/400/400?3" alt="Memory 3">
+      <img src="https://picsum.photos/400/400?4" alt="Memory 4">
+    </div>
+  </section>
+
+</div>
+
+<script>
+function unlock(){
+  const password = "120825";
+  const input = document.getElementById("pass").value;
+
+  if(input === password){
+    document.getElementById("lock").style.display="none";
+    document.getElementById("content").style.display="block";
+  }else{
+    alert("Wrong password 💔");
+  }
+}
+</script>
+
+</body>
+</html>
